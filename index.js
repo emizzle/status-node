@@ -3,7 +3,7 @@ var rimraf = require("rimraf");
 var fs = require("fs");
 
 // ============
-const libstatusPath = "../libstatus";
+const libstatusPath = "../libstatus";   // path to libstatus.so  (requires changing status-go build to c-shared)
 
 const keystoredir = "./keystore/";
 const datadir = "./data/";
@@ -11,7 +11,6 @@ const nobackupdir = "./noBackup/";
 
 try { rimraf.sync(keystoredir); } catch(e) {}
 try { rimraf.sync(datadir); } catch(e) {}
-try { rimraf.sync(datadir2); } catch(e) {}
 try { rimraf.sync(nobackupdir); } catch(e) {}
 
 fs.mkdirSync(keystoredir);
@@ -297,7 +296,7 @@ result = libstatus.SaveAccountAndLogin(
 );
 
 console.log("SAVEACCOUNTANDLOGIN", result);
-console.log('(error:"" means everything is ok)")
+console.log('(error:"" means everything is ok))  telnet to 30304');
 
 }, 5000);
 
